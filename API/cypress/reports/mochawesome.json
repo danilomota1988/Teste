@@ -1,0 +1,181 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 5,
+    "passes": 5,
+    "pending": 0,
+    "failures": 0,
+    "start": "2025-03-26T10:59:36.552Z",
+    "end": "2025-03-26T10:59:38.506Z",
+    "duration": 1954,
+    "testsRegistered": 5,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "af96817e-3162-4102-bd2d-7ca666824b51",
+      "title": "",
+      "fullFile": "cypress\\e2e\\petstore_api.cy.js",
+      "file": "cypress\\e2e\\petstore_api.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "fa84dee0-cdd9-4b44-8a3b-4b2e9f4972d1",
+          "title": "Petstore API Tests",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Retorno de um pet existente (GET /pet/{petId})",
+              "fullTitle": "Petstore API Tests Retorno de um pet existente (GET /pet/{petId})",
+              "timedOut": null,
+              "duration": 1095,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.api({\n  method: 'GET',\n  url: '/pet/1'\n}).then(response => {\n  expect(response.status).to.eq(200);\n  expect(response.headers['content-type']).to.include('application/json');\n  expect(response.body).to.have.property('id', 1);\n});",
+              "err": {},
+              "uuid": "51509ebb-8c3e-4358-b5a3-0a271c439c4f",
+              "parentUUID": "fa84dee0-cdd9-4b44-8a3b-4b2e9f4972d1",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Retornando erro para pet inexistente (GET /pet/{petId})",
+              "fullTitle": "Petstore API Tests Retornando erro para pet inexistente (GET /pet/{petId})",
+              "timedOut": null,
+              "duration": 204,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.api({\n  method: 'GET',\n  url: '/pet/999999',\n  failOnStatusCode: false\n}).then(response => {\n  expect(response.status).to.eq(404);\n  expect(response.body.message).to.include('Pet not found');\n});",
+              "err": {},
+              "uuid": "dc9d753f-a761-40ba-a27a-76c79e60a7ae",
+              "parentUUID": "fa84dee0-cdd9-4b44-8a3b-4b2e9f4972d1",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Adicionando um novo pet (POST /pet)",
+              "fullTitle": "Petstore API Tests Adicionando um novo pet (POST /pet)",
+              "timedOut": null,
+              "duration": 198,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "const pet = {\n  id: 123456789,\n  name: \"Rex\",\n  status: \"available\"\n};\ncy.api({\n  method: 'POST',\n  url: '/pet',\n  body: pet\n}).then(response => {\n  expect(response.status).to.eq(200);\n  expect(response.body).to.include(pet);\n});",
+              "err": {},
+              "uuid": "b53341d8-a72c-4d45-a25b-18fef400f13c",
+              "parentUUID": "fa84dee0-cdd9-4b44-8a3b-4b2e9f4972d1",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Atualizando um pet (PUT /pet)",
+              "fullTitle": "Petstore API Tests Atualizando um pet (PUT /pet)",
+              "timedOut": null,
+              "duration": 175,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "const updatedPet = {\n  id: 123456789,\n  name: \"Rex Atualizado\",\n  status: \"sold\"\n};\ncy.api({\n  method: 'PUT',\n  url: '/pet',\n  body: updatedPet\n}).then(response => {\n  expect(response.status).to.eq(200);\n  expect(response.body).to.include(updatedPet);\n});",
+              "err": {},
+              "uuid": "7936b22d-8149-41bf-be14-36d86c1a3974",
+              "parentUUID": "fa84dee0-cdd9-4b44-8a3b-4b2e9f4972d1",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Deletando um pet (DELETE /pet/{petId})",
+              "fullTitle": "Petstore API Tests Deletando um pet (DELETE /pet/{petId})",
+              "timedOut": null,
+              "duration": 192,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.api({\n  method: 'DELETE',\n  url: '/pet/123456789'\n}).then(response => {\n  expect(response.status).to.eq(200);\n});",
+              "err": {},
+              "uuid": "ac6ddc66-c922-4625-834d-5bd052cbce49",
+              "parentUUID": "fa84dee0-cdd9-4b44-8a3b-4b2e9f4972d1",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "51509ebb-8c3e-4358-b5a3-0a271c439c4f",
+            "dc9d753f-a761-40ba-a27a-76c79e60a7ae",
+            "b53341d8-a72c-4d45-a25b-18fef400f13c",
+            "7936b22d-8149-41bf-be14-36d86c1a3974",
+            "ac6ddc66-c922-4625-834d-5bd052cbce49"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 1864,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports",
+        "overwrite": false,
+        "html": false,
+        "json": true
+      },
+      "version": "6.2.0"
+    }
+  }
+}
